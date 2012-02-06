@@ -4,8 +4,6 @@ set PWD=%CD%
 set HERE=%~pd0
 set OLDPATH=%PATH%
 
-if not DEFINED PY_DIR goto nopy
-
 cd /d %HERE%
 
 call set_python_env_vars.cmd
@@ -17,7 +15,11 @@ wget -O %TMP_PATH%\distribute_setup.py %DISTRIBUTE_URL%
 
 :install_packages
 "%PY_DIR%\..\Scripts\easy_install.exe" pip
-"%PY_DIR%\..\Scripts\pip.exe" install virtualenv
+::virtualenv 1.7 has an issue creating virtualenvs from a python build directory.
+::see https://github.com/pypa/virtualenv/issues/139 for more information
+::"%PY_DIR%\..\Scripts\pip.exe" install virtualenv
+"%PY_DIR%\..\Scripts\pip.exe" install git+https://github.com/pypa/virtualenv.git#egg=virtualenv
+
 goto end
 
 :nopy
