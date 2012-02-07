@@ -9,9 +9,11 @@ cd /d %HERE%
 call set_python_env_vars.cmd
 
 :install_distribute
-
 wget -O %TMP_PATH%\distribute_setup.py %DISTRIBUTE_URL%
 "%PY_DIR%\python.exe" %TMP_PATH%\distribute_setup.py
+
+:install_pywin32
+"%PYTHON%" "%HERE%\install_pywin32.py"
 
 :install_packages
 "%PY_DIR%\..\Scripts\easy_install.exe" pip
@@ -19,6 +21,7 @@ wget -O %TMP_PATH%\distribute_setup.py %DISTRIBUTE_URL%
 ::see https://github.com/pypa/virtualenv/issues/139 for more information
 ::"%PY_DIR%\..\Scripts\pip.exe" install virtualenv
 "%PY_DIR%\..\Scripts\pip.exe" install git+https://github.com/pypa/virtualenv.git#egg=virtualenv
+
 
 goto end
 
