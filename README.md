@@ -30,8 +30,13 @@ in the file UnxUtils.zip dated 2007-03-01.
 Usage
 -----
 
-In the best case scenario, run buildpy.cmd. This should download Python, build it, install easy_install, pip, and virtualenv, and return you to cmd.
+Download & Build:
 
-After this, you can run utils\adjust_path.cmd to use these new interpreters.
+git clone git://github.com/CBWhiz/buildpy.git
+cd buildpy
+buildpy.cmd
 
-From there, i'd recommend creating a new virtualenv.
+Install to system:
+
+util\system_install.cmd -v C:\Python27
+
