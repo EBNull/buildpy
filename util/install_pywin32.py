@@ -66,7 +66,7 @@ def main(argv):
         print "Could not find easy_install.exe!"
         return
     try:
-        execute_subprocess((easy_install, "--help"))
+        execute_subprocess((easy_install, "pip")) #need this anyway
     except ElevationError:
         print "Not enough privileges, relaunching self"
         shell_execute_uac(sys.executable, [os.path.abspath(argv[0])] + argv[1:])
