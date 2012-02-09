@@ -32,11 +32,11 @@ Usage
 
 Download & Build:
 
-git clone git://github.com/CBWhiz/buildpy.git
-cd buildpy
-buildpy.cmd
+    git clone git://github.com/CBWhiz/buildpy.git
+    cd buildpy
+    buildpy.cmd
 
 Install to system:
 
-util\system_install.cmd -v C:\Python27
+    util\system_install.cmd -v C:\Python27
 
